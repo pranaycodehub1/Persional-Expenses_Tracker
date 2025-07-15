@@ -1,0 +1,12 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7fafc;
+}
+.chart-container {
+    height: 250px;
+    position: relative;
+}
+#expenseChart {
+    width: 100% !important;
+    height: 100% !important;
+}

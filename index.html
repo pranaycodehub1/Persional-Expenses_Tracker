@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Personal Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation Bar -->
+
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="mb-10 text-center" id="home">
+            <h1 class="text-4xl font-bold text-indigo-700 mb-2">FinanceFlow</h1>
+            <p class="text-gray-200">Track your expenses effortlessly</p>
+            <div class="w-20 h-1 bg-indigo-500 mx-auto mt-4"></div>
+        </header>
+
+<!-- ...existing code... -->
+<body class="min-h-screen bg-gray-50" style="background-image: url('Tracker Budget.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+    <!-- Navigation Bar -->
+    <!-- ...existing code... -->
+
+        <!-- Export Buttons -->
+        <div class="flex justify-end mb-4 space-x-2">
+            <button id="downloadPdfBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">Download PDF</button>
+            <button id="downloadExcelBtn" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">Download Excel</button>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Summary Cards -->
+            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+                    <h3 class="text-gray-500 font-medium">Total Balance</h3>
+                    <p id="totalBalance" class="text-3xl font-bold text-gray-800">₹0.00</p>
+                </div>
+                <!-- Total Income removed as requested -->
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+                    <h3 class="text-gray-500 font-medium">Total Expenses</h3>
+                    <p id="totalExpense" class="text-3xl font-bold text-red-600">₹0.00</p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+                    <h3 class="text-gray-500 font-medium">Total Income (Month)</h3>
+                    <p id="totalIncomeMonth" class="text-3xl font-bold text-blue-600">₹0.00</p>
+                </div>
+            </div>
+
+            <!-- Expense Form -->
+            <div class="lg:col-span-1 bg-white rounded-lg shadow overflow-hidden">
+                <div class="p-6 bg-indigo-700 text-white">
+                    <h2 class="text-xl font-semibold">Add Transaction</h2>
+                </div>
+                <div class="p-6">
+                    <form id="expenseForm" class="space-y-4">
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700">Description</label>
+                            <input type="text" id="title" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                            <input type="number" step="0.01" id="amount" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
+                            <select id="type" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="income">Income</option>
+                                <option value="expense" selected>Expense</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                            <select id="category" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="food">Food</option>
+                                <option value="transport">Transport</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="bills">Bills</option>
+                                <option value="rent">Rent</option>
+                                <option value="currentbill">Current Bill</option>
+                                <option value="hospital">Hospital</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+                            <input type="date" id="date" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add Transaction</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Expense List -->
+            <div class="lg:col-span-2 bg-white rounded-lg shadow overflow-hidden">
+                <div class="p-6 bg-indigo-700 text-white">
+                    <h2 class="text-xl font-semibold">Transaction History</h2>
+                </div>
+                <div class="p-4">
+                    <div class="mb-4">
+                        <input type="text" id="searchInput" placeholder="Search transactions..." class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div id="expenseList" class="space-y-3 max-h-96 overflow-y-auto"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="bg-white rounded-lg shadow overflow-hidden mt-6">
+            <div class="p-6 bg-indigo-700 text-white">
+                <h2 class="text-xl font-semibold">Monthly Overview</h2>
+            </div>
+            <div class="p-6">
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- SheetJS for Excel export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
